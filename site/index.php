@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   
-  
-  <!-- Cabeça --> 
 <head>
 
   <meta charset="utf-8">
@@ -31,18 +29,12 @@
       <a class="navbar-brand" href="index.php"><span class="badge badge-danger">🪐</span> Planeteitor  </a>
     </div>
   </nav>
-  <!-- Cabeça --> 
-  
-  
-  
-      <?php
-        $con = mysqli_connect("localhost","bob","bob","univille");
-        $sql = "select * from planetas";
-        $result = mysqli_query($con,$sql);  
-	    ?>
 
-
-
+  <?php
+    include 'dbconnect.php';
+    $sql = "select * from planetas";
+    $result = mysqli_query($con,$sql);  
+  ?>
 
   <!-- Page Content -->
   <div class="container ">
@@ -82,7 +74,6 @@
           <td> <a type="button" class="btn btn-dark" href="formManage.php?id=<?=$row[0]?>"> <?=$row[1]?></a> </td>
           <td> <?=$row[2]?> </td>
         </tr>
-        
          <?php
             }
          ?>

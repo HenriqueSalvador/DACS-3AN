@@ -39,10 +39,10 @@
   
   if(isset($_GET['id'])){
      $id = (int) $_GET["id"];
-     $con = mysqli_connect("localhost","bob","bob","univille");
+     include 'dbconnect.php';
      $select = "select * from planetas where codigo=?";
       $stmt = mysqli_prepare($con, $select);
-      mysqli_stmt_bind_param($stmt, "i", $id);
+      mysqli_stmt_bind_param($stmt, "s", $id);
       $a = mysqli_stmt_execute($stmt);
       mysqli_stmt_bind_result($stmt, $result);
       $result = mysqli_stmt_get_result($stmt);
