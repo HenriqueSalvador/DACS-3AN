@@ -1,0 +1,25 @@
+version: '3.3'
+
+services:
+   appphp2020henrique:
+     depends_on:
+       - dbhenrique  
+     image: henriquesalvador/appphp2020:latest
+     ports:
+       - "8080:80"
+     restart: always
+     environment:
+       - DB_HOST=dbhenrique
+       - DB_USER=root
+       - DB_PASSWORD=bob
+       - DB_NAME=univille
+   dbhenrique:
+     image: mysql:5.7
+     restart: always
+#     ports:
+#       - "3306:3306"
+     environment:
+       MYSQL_ROOT_PASSWORD: bob
+       MYSQL_DATABASE: univille
+       MYSQL_USER: bob
+       MYSQL_PASSWORD: bob
