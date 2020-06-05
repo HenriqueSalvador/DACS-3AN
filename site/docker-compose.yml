@@ -8,6 +8,11 @@ services:
      ports:
        - "8080:80"
      restart: always
+     
+    command: --init-file init.sql
+    volumes:
+        - ./init.sql:init.sql
+     
      environment:
        - DB_HOST=dbhenrique
        - DB_USER=root
